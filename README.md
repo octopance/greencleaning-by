@@ -16,9 +16,7 @@
 
 ## Что в репозитории
 
-Интерактивный чеклист (можно открыть локально или через GitHub Pages):
-
-- [`index.html`](index.html) — ежедневная уборка офиса + подготовка объекта к выезду клинеров
+Интерактивный чеклист: [octopance.github.io/greencleaning-by](https://octopance.github.io/greencleaning-by/) (исходник [`index.html`](index.html)) — ежедневная уборка офиса + подготовка объекта к выезду клинеров
 
 Markdown-версии (удобно печатать / копировать в Notion):
 
