@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Чеклисты уборки офиса — GreenCleaning</title>
+  <meta name="description" content="Практические чеклисты ежедневной уборки офиса, подготовки к выезду клинеров и уборки после ремонта. GreenCleaning, Минск.">
+  <link rel="canonical" href="https://octopance.github.io/greencleaning-by/">
+  <style>
+    :root {
+      --bg: #0f1f17;
+      --bg-elev: #162a20;
+      --ink: #e8f2ec;
+      --muted: #9bb5a6;
+      --accent: #3dba7a;
+      --accent-dim: #2a8f5c;
+      --line: rgba(232, 242, 236, 0.12);
+      --ok: #5ee0a0;
+      --font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font);
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse 80% 50% at 10% -10%, rgba(61, 186, 122, 0.22), transparent 55%),
+        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(42, 143, 92, 0.18), transparent 50%),
+        var(--bg);
+      line-height: 1.5;
+    }
+    a { color: var(--accent); }
+    a:hover { color: var(--ok); }
+    .wrap { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 4rem; }
+    .brand {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin: 0 0 0.75rem;
+      animation: fade-up 0.6s ease both;
+    }
+    h1 {
+      font-size: clamp(1.75rem, 4vw, 2.35rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin: 0 0 0.75rem;
+      animation: fade-up 0.6s ease 0.05s both;
+    }
+    .lead {
+      color: var(--muted);
+      margin: 0 0 1.75rem;
+      max-width: 38em;
+      animation: fade-up 0.6s ease 0.1s both;
+    }
+    .cta {
+      display: inline-flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+      animation: fade-up 0.6s ease 0.15s both;
+    }
+    .btn {
+      display: inline-block;
+      padding: 0.65rem 1.1rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary { background: var(--accent); color: #062214; }
+    .btn-primary:hover { background: var(--ok); color: #062214; }
+    .btn-ghost {
+      background: transparent;
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    .tabs {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 0.75rem;
+    }
+    .tab {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      color: var(--muted);
+      padding: 0.45rem 0.85rem;
+      border-radius: 999px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.9rem;
+    }
+    .tab[aria-selected="true"] {
+      color: var(--bg);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+    .panel { display: none; }
+    .panel.active { display: block; animation: fade-up 0.35s ease both; }
+    .progress {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .progress strong { color: var(--ok); }
+    .list { list-style: none; padding: 0; margin: 0; }
+    .list li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .list label {
+      cursor: pointer;
+      flex: 1;
+    }
+    .list input {
+      margin-top: 0.3rem;
+      width: 1.1rem;
+      height: 1.1rem;
+      accent-color: var(--accent);
+    }
+    .list li.done label {
+      color: var(--muted);
+      text-decoration: line-through;
+    }
+    .tools {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin: 1.25rem 0 2rem;
+    }
+    .tools button {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: var(--bg-elev);
+      color: var(--ink);
+      padding: 0.45rem 0.85rem;
+      border-radius: 6px;
+      cursor: pointer;
+      font: inherit;
+      font-size: 0.9rem;
+    }
+    .tools button:hover { border-color: var(--accent-dim); }
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    footer ul { padding-left: 1.1rem; margin: 0.5rem 0 0; }
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <p class="brand">GreenCleaning · Минск</p>
+    <h1>Чеклисты уборки офиса</h1>
+    <p class="lead">Отметьте пункты — прогресс сохранится в этом браузере. Списки из практики B2B-объектов; точный расчёт заказа — на сайте.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="https://greencleaning.by/uslugi/dlya-biznesa/uborka-ofisov/">Уборка офисов</a>
+      <a class="btn btn-ghost" href="https://greencleaning.by/calc/">Калькулятор</a>
+    </div>
+
+    <div class="tabs" role="tablist" aria-label="Тип чеклиста">
+      <button class="tab" role="tab" id="tab-daily" aria-selected="true" aria-controls="panel-daily" data-panel="daily">Ежедневная</button>
+      <button class="tab" role="tab" id="tab-prep" aria-selected="false" aria-controls="panel-prep" data-panel="prep">Перед выездом</button>
+      <button class="tab" role="tab" id="tab-reno" aria-selected="false" aria-controls="panel-reno" data-panel="reno">После ремонта</button>
+    </div>
+
+    <p class="progress" id="progress" aria-live="polite">Готово: <strong>0</strong> из 0</p>
+
+    <section class="panel active" id="panel-daily" role="tabpanel" aria-labelledby="tab-daily" data-key="daily">
+      <ul class="list" data-list="daily"></ul>
+    </section>
+    <section class="panel" id="panel-prep" role="tabpanel" aria-labelledby="tab-prep" data-key="prep" hidden>
+      <ul class="list" data-list="prep"></ul>
+    </section>
+    <section class="panel" id="panel-reno" role="tabpanel" aria-labelledby="tab-reno" data-key="reno" hidden>
+      <ul class="list" data-list="reno"></ul>
+    </section>
+
+    <div class="tools">
+      <button type="button" id="btn-reset">Сбросить текущий список</button>
+      <button type="button" id="btn-print">Печать</button>
+    </div>
+
+    <footer>
+      <p>GreenCleaning — клининговая компания в Минске. Материалы: CC BY 4.0.</p>
+      <ul>
+        <li><a href="https://greencleaning.by/">Главная</a></li>
+        <li><a href="https://greencleaning.by/uslugi/dlya-biznesa/">Клининг для бизнеса</a></li>
+        <li><a href="https://greencleaning.by/uslugi/dlya-biznesa/uborka-ofisov/">Уборка офисов</a></li>
+        <li><a href="https://greencleaning.by/uslugi/uborka-posle-remonta/">Уборка после ремонта</a></li>
+      </ul>
+    </footer>
+  </main>
+  <script>
+    const DATA = {
+      daily: [
+        "Входная группа: коврик, пол, ручки дверей",
+        "Ресепшен: поверхности без разводов, мусор",
+        "Коридоры и холлы: плинтусы, пол",
+        "Кухня / кофе-пойнт: столешницы, мойка, пол",
+        "Санузлы: сантехника, зеркала, расходники, пол",
+        "Мусорные корзины: опустошить, заменить пакеты",
+        "Столы: влажная протирка доступных поверхностей",
+        "Оргтехника снаружи по регламенту",
+        "Переговорные: стол, стулья, пол, мусор",
+        "Проверить расходники, свет, короткий отчёт"
+      ],
+      prep: [
+        "Согласовать время доступа и ответственного",
+        "Сообщить пропускной режим / парковку / этаж",
+        "Уточнить зоны «трогать / не трогать»",
+        "Предупредить сотрудников убрать личные вещи",
+        "Доступ к воде и электричеству",
+        "Освободить проходы для техники",
+        "Отметить проблемные места (пятна, запах)",
+        "Передать ключи / карточки охране",
+        "Приёмка по зонам после уборки",
+        "Зафиксировать замечания в день визита"
+      ],
+      reno: [
+        "Крупный строительный мусор вывезен",
+        "Розетки и проводка защищены",
+        "Есть точка набора воды",
+        "Согласованы чистые зоны vs зона работ",
+        "Фото проблемных мест переданы бригаде",
+        "Строительная пыль с поверхностей",
+        "Стёкла, рамы, подоконники (если в заказе)",
+        "Полы: пыль и следы отделки",
+        "Санузел и кухня после отделки",
+        "Приёмка при хорошем свете, список замечаний"
+      ]
+    };
+
+    const storageKey = "gc-checklist-v1";
+    let state = JSON.parse(localStorage.getItem(storageKey) || "{}");
+    let active = "daily";
+
+    function ensureState(key) {
+      if (!state[key] || state[key].length !== DATA[key].length) {
+        state[key] = DATA[key].map(() => false);
+      }
+    }
+
+    function save() {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+    }
+
+    function renderList(key) {
+      ensureState(key);
+      const ul = document.querySelector(`[data-list="${key}"]`);
+      ul.innerHTML = "";
+      DATA[key].forEach((text, i) => {
+        const li = document.createElement("li");
+        if (state[key][i]) li.classList.add("done");
+        const id = `${key}-${i}`;
+        li.innerHTML = `<input type="checkbox" id="${id}" ${state[key][i] ? "checked" : ""}><label for="${id}">${text}</label>`;
+        li.querySelector("input").addEventListener("change", (e) => {
+          state[key][i] = e.target.checked;
+          li.classList.toggle("done", e.target.checked);
+          save();
+          updateProgress();
+        });
+        ul.appendChild(li);
+      });
+    }
+
+    function updateProgress() {
+      ensureState(active);
+      const total = state[active].length;
+      const done = state[active].filter(Boolean).length;
+      document.getElementById("progress").innerHTML = `Готово: <strong>${done}</strong> из ${total}`;
+    }
+
+    function showPanel(key) {
+      active = key;
+      document.querySelectorAll(".tab").forEach((btn) => {
+        const on = btn.dataset.panel === key;
+        btn.setAttribute("aria-selected", on ? "true" : "false");
+      });
+      document.querySelectorAll(".panel").forEach((panel) => {
+        const on = panel.dataset.key === key;
+        panel.classList.toggle("active", on);
+        panel.hidden = !on;
+      });
+      updateProgress();
+    }
+
+    Object.keys(DATA).forEach(renderList);
+    document.querySelectorAll(".tab").forEach((btn) => {
+      btn.addEventListener("click", () => showPanel(btn.dataset.panel));
+    });
+    document.getElementById("btn-reset").addEventListener("click", () => {
+      state[active] = DATA[active].map(() => false);
+      save();
+      renderList(active);
+      updateProgress();
+    });
+    document.getElementById("btn-print").addEventListener("click", () => window.print());
+    showPanel("daily");
+  </script>
+</body>
+</html>
